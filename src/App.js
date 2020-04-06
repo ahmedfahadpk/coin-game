@@ -12,6 +12,11 @@ class App extends Component {
     current: 0,
   };
 
+  pace = 1500;
+  timer = undefined;
+
+  // About finding the new number
+
   next = () => {
     let nextActive = undefined;
 
@@ -23,6 +28,9 @@ class App extends Component {
       current: nextActive,
     });
 
+    this.timer = setTimeout(this.next, this.pace);
+    console.log(this.state.current);
+
   };
 
   clickHandler = (circleID) => {
@@ -32,20 +40,49 @@ class App extends Component {
     });
   };
 
+  // Start Handler
+
+  startHandler = () => {
+    this.next();
+  };
+
+
+  // End Handler
+
+  endHandler = () => {
+    clearTimeout(this.timer);
+  };
+
   render() {
     return (
       <div>
         <h1>CoinGame</h1>
         <p>Your Score: {this.state.score}</p>
         <main>
-          <Circle click={this.clickHandler.bind(this, 1)} />
-          <Circle click={this.clickHandler.bind(this, 2)} />
-          <Circle click={this.clickHandler.bind(this, 3)} />
-          <Circle click={this.clickHandler.bind(this, 4)} />
+          <Circle
+          highlighted={this.state.current === 1}
+          mydefaultcolor='Yellow'
+          click={this.clickHandler.bind(this, 1)}
+          />
+          <Circle
+          highlighted={this.state.current === 2}
+          mydefaultcolor='Green'
+          click={this.clickHandler.bind(this, 2)}
+          />
+          <Circle
+          highlighted={this.state.current === 3}
+          mydefaultcolor='Red'
+          click={this.clickHandler.bind(this, 3)}
+          />
+          <Circle
+          highlighted={this.state.current === 4}
+          mydefaultcolor='Blue'
+          click={this.clickHandler.bind(this, 4)}
+          />
         </main>        
         <div>
-          <button>Start Game</button>
-          <button>End Game</button>
+          <button onClick={this.startHandler}>Start Game</button>
+          <button onClick={this.endHandler}>End Game</button>
         </div>
         
       </div>
