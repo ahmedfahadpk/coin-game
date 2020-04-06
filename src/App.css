@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+  font-family: 'Almendra Display', cursive;
+  background: rgb(50, 85, 21);
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+  
