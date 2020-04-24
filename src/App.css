@@ -1,12 +1,20 @@
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: 0;
-  font-family: 'Almendra Display', cursive;
-  background: rgb(50, 85, 21);
-  display: flex;
-  flex-direction: column;
+.content {
+  display: grid;
   justify-items: center;
   align-items: center;
+}
+
+button {
+  height: 50px;
+  width: 150px;
+  border-radius: 10px;
+  background: teal;
+}
+
+.banner {
+  color: black;
+  top: 50%;
+  bottom: 50%;
+  font-family: 'Almendra Display', cursive;
 }
   
